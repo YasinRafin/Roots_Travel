@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin.css">
+    <title>Admin Dashboard</title>
+    <script>
+        // Redirect to login if not authenticated
+        document.addEventListener("DOMContentLoaded", function () {
+            const isAuthenticated = localStorage.getItem("isAuthenticated");
+            if (!isAuthenticated) {
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Admin Dashboard</h1>
+        <button id="logout-btn">Logout</button>
+        
+        <!-- Tour Package Section -->
+        <section id="tour-package-section" class="section-wrapper">
+            <h2>Tour Packages</h2>
+            <div class="input-group">
+                <input type="text" id="tourPackage-title" placeholder="Enter Title" aria-label="Tour Package Title" required>
+                <textarea id="tourPackage-description" placeholder="Enter Description" aria-label="Tour Package Description" rows="4"></textarea>
+                <textarea id="tourPackage-price-details" placeholder="Enter Price" aria-label="Tour Package Price-Details" rows="4"></textarea>
+                <textarea id="tourPackage-embassy-info" placeholder="Enter Info" aria-label="Tour Package Embassy-info" rows="4"></textarea>
+                <input type="url" id="tourPackage-image-url" placeholder="Enter Image URL" aria-label="Tour Package Image URL" required>
+                <button type="button" onclick="addOrUpdateCarouselItem('tourPackage')">Save Tour Package</button>
+            </div>
+            <div id="tourPackage-preview" class="preview-container"></div>
+        </section>
+        
+        <!-- Air Ticket Section -->
+        <section id="air-ticket-section" class="section-wrapper">
+            <h2>Air Tickets</h2>
+            <div class="input-group">
+                <input type="text" id="airTicket-title" placeholder="Enter Title" aria-label="Air Ticket Title" required>
+                <textarea id="airTicket-description" placeholder="Enter Description" aria-label="Air Ticket Description" rows="4"></textarea>
+                <textarea id="airTicket-price-details" placeholder="Enter Price" aria-label="Tour Package Price-Details" rows="4"></textarea>
+                <textarea id="airTicket-embassy-info" placeholder="Enter Info" aria-label="Tour Package Embassy-info" rows="4"></textarea>
+                <input type="url" id="airTicket-image-url" placeholder="Enter Image URL" aria-label="Air Ticket Image URL" required>
+                <button type="button" onclick="addOrUpdateCarouselItem('airTicket')">Save Air Ticket</button>
+            </div>
+            <div id="airTicket-preview" class="preview-container"></div>
+        </section>
+        
+        <!-- Visa Section -->
+        <section id="visa-section" class="section-wrapper">
+            <h2>Visa</h2>
+            <div class="input-group">
+                <input type="text" id="visa-title" placeholder="Enter Title" aria-label="Visa Title" required>
+                <textarea id="visa-description" placeholder="Enter Description" aria-label="Visa Description" rows="4"></textarea>
+                <textarea id="visa-price-details" placeholder="Enter Price" aria-label="Tour Package Price-Details" rows="4"></textarea>
+                <textarea id="visa-embassy-info" placeholder="Enter Info" aria-label="Tour Package Embassy-info" rows="4"></textarea>
+                <input type="url" id="visa-image-url" placeholder="Enter Image URL" aria-label="Visa Image URL" required>
+                <button type="button" onclick="addOrUpdateCarouselItem('visa')">Save Visa</button>
+            </div>
+            <div id="visa-preview" class="preview-container"></div>
+        </section>
+        
+        <!-- Hotel Booking Section -->
+        <section id="hotel-booking-section" class="section-wrapper">
+            <h2>Hotel Booking</h2>
+            <div class="input-group">
+                <input type="text" id="hotelBooking-title" placeholder="Enter Title" aria-label="Hotel Booking Title" required>
+                <textarea id="hotelBooking-description" placeholder="Enter Description" aria-label="Hotel Booking Description" rows="4"></textarea>
+                <textarea id="hotelBooking-price-details" placeholder="Enter Price" aria-label="Tour Package Price-Details" rows="4"></textarea>
+                <textarea id="hotelBooking-embassy-info" placeholder="Enter Info" aria-label="Tour Package Embassy-info" rows="4"></textarea>
+                <input type="url" id="hotelBooking-image-url" placeholder="Enter Image URL" aria-label="Hotel Booking Image URL" required>
+                <button type="button" onclick="addOrUpdateCarouselItem('hotelBooking')">Save Hotel Booking</button>
+            </div>
+            <div id="hotelBooking-preview" class="preview-container"></div>
+        </section>
+        
+    </div>
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>

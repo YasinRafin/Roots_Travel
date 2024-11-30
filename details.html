@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="details.css">
+    <title>Details</title>
+</head>
+<body>
+    <div class="details-container">
+        <!-- Header Section -->
+        <div class="details-header">
+            <h1 id="details-title">Documents Required for Sri Lanka Tourist eVisa</h1>
+            <p class="subtitle">Trip Designer Authorized Visa Submitting Agents of Embassy in Dhaka, Bangladesh</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="details-content">
+            <div class="left-section">
+                <!-- Documents Section -->
+                <div class="section">
+                    <h2>Documents Required for <span id="visa-type">Sri Lanka Tourist Visa</span></h2>
+                    <p class="subsection-title">General Requirements</p>
+                    <ul id="general-requirements">
+                        <!-- Dynamic content -->
+                    </ul>
+                </div>
+
+                <!-- Price Details -->
+                <div class="section">
+                    <h2>Price Details</h2>
+                    <p class="subsection-title">Per Person Price (for Bangladeshi Passport Holders)</p>
+                    <ul id="price-details">
+                        <!-- Dynamic content -->
+                    </ul>
+                </div>
+
+                <!-- Embassy Information -->
+                <div class="section">
+                    <h2>Embassy Information</h2>
+                    <ul id="embassy-info">
+                        <!-- Dynamic content -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact and Query Section -->
+            <div class="right-section">
+                <div class="contact-box">
+                    <h3>For Booking Please Contact Us:</h3>
+                    <p><strong>Phone:</strong> <span id="contact-phone">+8801799942453</span></p>
+                    <p><strong>Email:</strong> <span id="contact-email">rootsedu.consultancy@gmail.com</span></p>
+                </div>
+                <button class="query-button">SEND QUERY</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Populate data dynamically from localStorage
+        document.addEventListener("DOMContentLoaded", function () {
+            const item = JSON.parse(localStorage.getItem('detailsItem'));
+
+            if (item) {
+                // Update title and visa type
+                document.getElementById('details-title').textContent = item.title;
+                document.getElementById('visa-type').textContent = item.title;
+
+                document.getElementById('general-requirements').textContent = item.description
+
+                document.getElementById("price-details").textContent = item.priceDetails
+
+                document.getElementById("embassy-info").textContent = item.embassyInfo
+
+            } else {
+                document.body.innerHTML = '<p>No details available. Please return to the main page.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
